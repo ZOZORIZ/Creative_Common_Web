@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { google } from 'googleapis';
 import { v2 as cloudinary } from 'cloudinary';
+import { Readable } from 'stream';
 
 // Initialize Google APIs
 const auth = new google.auth.GoogleAuth({
@@ -120,11 +121,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error('Error in upload-and-submit:', error);
     return NextResponse.json(
-      { 
-        success: false,
-        error: 'Failed to submit form',
-        details: error instanceof Error ? error.message : 'Unknown error'
-      },
+      { error: 'Failed to process request' },
       { status: 500 }
     );
   }
