@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CreativeCommon Club Website 🌟
 
-## Getting Started
+This is the official website for the **CreativeCommon** club — a student-led creative production team specializing in visual design, storytelling, and multimedia.
+Built using **Next.js**, the site showcases club activities, allows project submissions, and integrates with Google Drive and Google Sheets for streamlined workflows.
 
-First, run the development server:
+---
+
+## 🚀 Features
+
+- ⚙️ Built with **Next.js** and **Tailwind CSS**
+- 🎨 Stunning parallax hero section with GSAP animations
+- 📄 Multi-step submission form with:
+- 📁 File upload (logo, references) to Google Drive
+- 📃Final data submission to Google Sheets
+- ☁️ Cloudinary support for future image handling
+- 🔒 Fully client-server integrated via `App Router` and `API Routes`
+
+---
+
+## 📁 Project Structure
+
+/  
+├── app/ # App Router structure  (includes pages)  
+│ └── api/ # API routes (upload, submit)  
+├── components/ # Reusable UI components (Hero, Parallax, etc.)  
+├── public/ # Static assets  
+├── styles/ # Global styles  
+├── .env.local # Environment variables (not committed)  
+└── README.md # You're here!  
+
+## 🧑‍💻 Getting Started  
+
+### 1. Clone the Repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/creativecommon-site.git
+cd creativecommon-site
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. Install Dependencies
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Set Up Environment Variables
+```bash
+Create a .env.local file in the root:
 
-## Learn More
+NEXT_PUBLIC_GOOGLE_DRIVE_FOLDER_ID=paste folder id here
+GOOGLE_SHEETS_API_URL=paste api 
+CLOUDINARY_URL=for cloud services paste the url
+```
+⚠️ Never commit your .env.local file.  
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  
+4. Run in Development
+```bash
+npm run dev
+Visit http://localhost:3000
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5. Build for Production
+```bash
+npm run build
+npm run start
+```
+---
 
-## Deploy on Vercel
+## 🛠️ Technologies Used
+Next.js
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Tailwind CSS
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+GSAP
+
+Google Drive API
+
+Google Sheets API
+
+Cloudinary (optional)
+
+## 📬 Contributions  
+
+Got suggestions or want to contribute? Open an issue or submit a pull request!  
+
+## For creative submissions, visit our site and use the form ✨
+
+## 👨 Aurthor
+Noah Cherian Jacob
