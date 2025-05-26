@@ -93,19 +93,22 @@ export default function About() {
         {/* Vertical Blur Container for Text Sections (Starts from Hero) */}
         <div className="max-w-4xl mx-auto backdrop-blur-lg bg-white/30 rounded-lg p-6 sm:p-8 shadow-lg my-4 sm:my-8">
           {/* Hero Section */}
-          <section className="pt-12 sm:pt-20 md:pt-32 pb-0 px-2 sm:px-4 text-center">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-2xl sm:text-5xl md:text-6xl font-black mb-3 bg-gradient-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent"
-            >
-              CreativeCommon
-            </motion.h1>
+          <section className="pt-4 sm:pt-25 md:pt-10 pb-0 px-10 sm:px-40 text-center">
+          <div className="flex items-center">
+            <div className="w-[570px] sm:w-[570px] h-[70px] sm:h-[150px] flex items-center justify-center overflow-hidden">
+              <img 
+                src="/logo.png" 
+                alt="CreativeCommon Logo" 
+                className="object-cover w-full h-full" 
+                draggable="false"
+              />
+            </div>
+        </div>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-xs sm:text-xl italic text-white mb-6 sm:mb-12 px-2" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}
+              className="text-xs sm:text-xl italic text-white mb-10 sm:mb-12 px-2" 
             >
               Where creativity meets community, and ideas transform into visual masterpieces
             </motion.p>
