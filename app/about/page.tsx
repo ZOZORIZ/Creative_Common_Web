@@ -97,15 +97,15 @@ export default function About() {
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-2xl sm:text-5xl md:text-6xl font-bold mb-3 bg-gradient-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent"
+              className="text-2xl sm:text-5xl md:text-6xl font-black mb-3 bg-gradient-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent"
             >
-              <span className="text-2xl">About</span><br className="md:hidden"/><span className="text-4x1">CreativeCommon</span>
+              CreativeCommon
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-xs sm:text-xl text-white mb-6 sm:mb-12 px-2" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}
+              className="text-xs sm:text-xl italic text-white mb-6 sm:mb-12 px-2" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}
             >
               Where creativity meets community, and ideas transform into visual masterpieces
             </motion.p>
@@ -143,7 +143,7 @@ export default function About() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center bg-gradient-to-r from-[#E2C9D8] to-[#F4E5ED] bg-clip-text text-transparent" 
+                className="text-xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center bg-gradient-to-r from-[#E2C9D8] to-[#F4E5ED] bg-clip-text text-transparent" 
               >
                 Our Creative Toolkit
               </motion.h2>
@@ -178,12 +178,12 @@ export default function About() {
                 viewport={{ once: true }}
                 className="space-y-6 sm:space-y-8"
               >
-                <h2 className="text-2xl sm:text-3xl font-bold text-center bg-gradient-to-r from-[#E2C9D8] to-[#F4E5ED] bg-clip-text text-transparent mb-6   sm:mb-8">Growing Together</h2>
-                <p className="text-base sm:text-lg text-white leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
+                <h2 className="text-xl sm:text-3xl font-bold text-center bg-gradient-to-r from-[#E2C9D8] to-[#F4E5ED] bg-clip-text text-transparent mb-6   sm:mb-8">Growing Together</h2>
+                <p className="text-sm sm:text-lg text-white leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
                   We also plan to organize workshops, design challenges, and training sessions to help students sharpen their skills in UI design, digital editing, and visual communication — all while keeping things practical, collaborative, and student-friendly.
                 </p>
                 <div className="bg-gradient-to-r from-indigo-100 to-pink-100 rounded-2xl p-6 sm:p-8 text-center">
-                  <p className="text-base sm:text-lg text-gray-700">
+                  <p className="text-sm sm:text-lg text-gray-700">
                     CreativeCommon is here to build a bridge between creativity and execution — making sure every idea, no matter how big or small, gets the presentation it truly deserves.
                   </p>
                 </div>
@@ -198,7 +198,7 @@ export default function About() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-2xl sm:text-3xl font-bold mb-2 bg-gradient-to-r from-[#E2C9D8] to-[#F4E5ED] bg-clip-text text-transparent"
+                className="text-xl sm:text-3xl font-bold mb-2 bg-gradient-to-r from-[#E2C9D8] to-[#F4E5ED] bg-clip-text text-transparent"
               >
                 Join Our Creative Family
               </motion.h2>
@@ -207,7 +207,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="text-base sm:text-lg text-white mb-8 sm:mb-12 max-w-2xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}
+                className="text-sm sm:text-lg text-white mb-8 sm:mb-12 max-w-2xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}
               >
                 Whether you&apos;re a seasoned designer or just starting your creative journey, Creative Common is the perfect place to grow, learn, and create amazing things together.
               </motion.p>

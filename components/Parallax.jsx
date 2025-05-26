@@ -31,7 +31,7 @@ export default function Parallax() {
                 nightCloud2: { y: 30, x: 75 }
             },
             desktop: {
-                dayLight: 900,
+                dayLight: 800,
                 firstSun: -50,
                 cloud1: -200,
                 cloud2: 100,
