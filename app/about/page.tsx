@@ -91,45 +91,45 @@ export default function About() {
         className="min-h-screen bg-cover bg-center overflow-hidden py-20 px-4 relative bg-[url('/about.jpg')] bg-[length:313%_auto] sm:bg-[length:280%_auto]"
       >
         {/* Vertical Blur Container for Text Sections (Starts from Hero) */}
-        <div className="max-w-4xl mx-auto backdrop-blur-lg bg-white/30 rounded-lg p-4 sm:p-8 shadow-lg my-4 sm:my-8">
+        <div className="max-w-4xl mx-auto backdrop-blur-lg bg-white/30 rounded-lg p-6 sm:p-8 shadow-lg my-4 sm:my-8">
           {/* Hero Section */}
-          <section className="pt-16 sm:pt-20 md:pt-32 pb-0 px-4 text-center">
+          <section className="pt-12 sm:pt-20 md:pt-32 pb-0 px-2 sm:px-4 text-center">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-3 bg-gradient-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent"
+              className="text-2xl sm:text-5xl md:text-6xl font-bold mb-3 bg-gradient-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent"
             >
-              About CreativeCommon
+              <span className="text-2xl">About</span><br className="md:hidden"/><span className="text-4x1">CreativeCommon</span>
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-lg sm:text-xl text-white mb-8 sm:mb-12" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}
+              className="text-xs sm:text-xl text-white mb-6 sm:mb-12 px-2" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}
             >
               Where creativity meets community, and ideas transform into visual masterpieces
             </motion.p>
           </section>
 
           {/* Introduction Section */}
-          <section className="py-6 sm:py-10 px-4">
+          <section className="py-4 sm:py-10 px-2 sm:px-4">
             <div className="max-w-4xl mx-auto">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="space-y-6 sm:space-y-8"
+                className="space-y-4 sm:space-y-8"
               >
-                <p className="text-base sm:text-lg text-white leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
+                <p className="text-sm sm:text-lg text-white leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
                   CreativeCommon is a student-driven creative production club that brings ideas to life through thoughtful design, storytelling, and digital media. We focus on supporting other student clubs and initiatives by providing design services — from posters and social media content to video editing and event branding.
                 </p>
-                <div className="bg-gradient-to-r from-indigo-100 to-pink-100 rounded-2xl p-6 sm:p-8">
-                  <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-indigo-700">Our Mission</h2>
-                  <p className="text-base sm:text-lg text-gray-700">
+                <div className="bg-gradient-to-r from-indigo-100 to-pink-100 rounded-2xl p-4 sm:p-8">
+                  <h2 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-4 text-indigo-700">Our Mission</h2>
+                  <p className="text-sm sm:text-lg text-gray-700">
                     To make creativity accessible and impactful — where ideas matter just as much as execution.
                   </p>
                 </div>
-                <p className="text-base sm:text-lg text-white leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
+                <p className="text-sm sm:text-lg text-white leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
                   In a world where communication is visual, we aim to ensure that every club and student project gets the presentation it deserves. Whether it&apos;s crafting a compelling event poster, editing a highlight video, or creating an Instagram reel that resonates — we handle the creative so others can focus on the content.
                 </p>
               </motion.div>
@@ -178,7 +178,7 @@ export default function About() {
                 viewport={{ once: true }}
                 className="space-y-6 sm:space-y-8"
               >
-                <h2 className="text-2xl sm:text-3xl font-bold text-center bg-gradient-to-r from-[#E2C9D8] to-[#F4E5ED] bg-clip-text text-transparent mb-6 sm:mb-8">Growing Together</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold text-center bg-gradient-to-r from-[#E2C9D8] to-[#F4E5ED] bg-clip-text text-transparent mb-6   sm:mb-8">Growing Together</h2>
                 <p className="text-base sm:text-lg text-white leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
                   We also plan to organize workshops, design challenges, and training sessions to help students sharpen their skills in UI design, digital editing, and visual communication — all while keeping things practical, collaborative, and student-friendly.
                 </p>
