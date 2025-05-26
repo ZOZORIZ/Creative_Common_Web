@@ -127,8 +127,7 @@ export default function Portfolio() {
   return (
     <PageTransition>
       <div 
-        className="min-h-screen bg-cover bg-center overflow-hidden py-20 px-4 relative"
-        style={{ backgroundImage: 'url(/portfolio.png)', backgroundSize: '110%' }}
+        className="min-h-screen bg-cover bg-center overflow-hidden py-20 px-4 relative bg-[url('/portfolio.png')] bg-[length:400%_auto] sm:bg-[length:110%_auto]"
       >
         {expandedId !== null && (
           <motion.div
@@ -140,14 +139,14 @@ export default function Portfolio() {
           />
         )}
 
-        {/* Hero Section - Kept for page structure */}
-        <section className="text-center mb-16 mt-24 z-20 relative">
+        {/* Hero Section */}
+        <section className="text-center mb-8 sm:mb-16 mt-16 sm:mt-24 z-20 relative">
           {/* Blur box around heading and subheading */}
-          <div className="inline-block backdrop-blur-sm bg-white/30 rounded-lg p-6 max-w-5xl mx-auto">
+          <div className="inline-block backdrop-blur-sm bg-white/30 rounded-lg p-4 sm:p-6 max-w-5xl mx-auto">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-5xl md:text-6x1 font-bold mb-5 bg-gradient-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent"
+              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-3 sm:mb-5 bg-gradient-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent"
             >
               Our Portfolio
             </motion.h1>
@@ -155,16 +154,16 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-xl text-gray-600"
+              className="text-base sm:text-xl text-white" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}
             >
               A showcase of our creative journey and the stories we've helped bring to life
             </motion.p>
-          </div> {/* End Blur box */}
+          </div>
         </section>
 
         {/* Interactive Gallery */}
-        <section className="max-w-6xl mx-auto z-20 relative">
-          <div className="flex flex-wrap justify-center gap-6">
+        <section className="max-w-6xl mx-auto z-20 relative px-4">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
             {projects.map(project => {
               const isExpanded = expandedId === project.id;
               return (
@@ -174,20 +173,24 @@ export default function Portfolio() {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, type: "spring" }}
-                  className={`relative rounded-2xl overflow-hidden shadow-xl cursor-pointer ${isExpanded ? 'w-full max-w-3xl' : 'w-40 h-60'} bg-white`}
+                  className={`relative rounded-2xl overflow-hidden shadow-xl cursor-pointer ${
+                    isExpanded 
+                      ? 'w-full max-w-3xl' 
+                      : 'w-[calc(50%-0.5rem)] sm:w-40 h-40 sm:h-60'
+                  } bg-white`}
                   onClick={() => handleCardClick(project.id)}
                   whileHover={{ scale: isExpanded ? 1 : 1.05 }}
                   whileTap={{ scale: isExpanded ? 1 : 0.98 }}
                   ref={el => { cardRefs.current[project.id] = el; }}
                 >
-                  <div className={`relative ${isExpanded ? 'h-96' : 'h-full w-full'}`}>
+                  <div className={`relative ${isExpanded ? 'h-64 sm:h-96' : 'h-full w-full'}`}>
                     <Image 
                       src={project.image}
                       alt={`Portfolio Image ${project.id}`}
                       fill
                       className={`object-cover ${isExpanded ? 'rounded-t-2xl' : 'rounded-2xl'}`}
                       priority
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
                     />
                   </div>
                   <AnimatePresence>
@@ -197,10 +200,13 @@ export default function Portfolio() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 20 }}
                         transition={{ duration: 0.3 }}
-                        className="p-6"
+                        className="p-4 sm:p-6 bg-white"
                       >
-                        <h3 className="text-2xl font-bold text-gray-800 mb-2">{project.title}</h3>
-                        <p className="text-gray-600 text-lg">{project.description}</p>
+                        <h3 className="text-xl sm:text-2xl font-bold mb-2 text-gray-800">{project.title}</h3>
+                        <p className="text-sm sm:text-base text-gray-600 mb-3">{project.description}</p>
+                        <span className="inline-block px-3 py-1 text-xs sm:text-sm bg-indigo-100 text-indigo-700 rounded-full">
+                          {project.category}
+                        </span>
                       </motion.div>
                     )}
                   </AnimatePresence>

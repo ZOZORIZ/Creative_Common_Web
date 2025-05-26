@@ -32,54 +32,120 @@
 /* Individual Image Styling */
 
 .parallax-outer img[src="/day_light.svg"] {
-    width: 80%; /* Adjust as needed */
-    top: 10%; /* Changed from 8.15% to 0% to start from the top */
-    left: 60%; /* Keep centered horizontally */
-    transform: translateX(-50%); /* Center horizontally */
+    width: 100%;
+    top: 17%;
+    left: 60%;
+    transform: translateX(-50%);
     will-change: transform, top, left;
 }
 
+@media (min-width: 640px) {
+    .parallax-outer img[src="/day_light.svg"] {
+        width: 80%;
+        top: 10%;
+    }
+}
+
 .parallax-outer img[src="/day_cloud_1.svg"] {
-    width: 70%; /* Adjust as needed */
-    top: 9.5%; /* Adjust as needed */
-    left: 29.4%; /* Adjust as needed */
+    width: 200%;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media (min-width: 640px) {
+    .parallax-outer img[src="/day_cloud_1.svg"] {
+        width: 70%;
+        top: 9.5%;
+        left: 29.4%;
+        transform: none;
+    }
 }
 
 .parallax-outer img[src="/day_cloud_2.svg"] {
-    width: 55%; /* Adjust as needed */
-    top: 2%; /* Adjust as needed */
-    left: 30%; /* Adjust as needed */
+    width: 170%;
+    top: 10%;
+    left: 55%;
+    transform: translateX(-50%);
+}
+
+@media (min-width: 640px) {
+    .parallax-outer img[src="/day_cloud_2.svg"] {
+        width: 55%;
+        top: 2%;
+        left: 30%;
+        transform: none;
+    }
 }
 
 .parallax-outer img[src="/sun.svg"] {
-    width: 75%; /* Increased from 15% to 25% */
-    top: 5%; /* Moved higher up from 5% to 2% */
-    left: 10%; /* Moved more to the left from 80% to 70% */
+    width: 90%;
+    top: 7%;
+    left: 50%;
+    transform: translateX(-50%);
     will-change: transform;
-    z-index: 20; /* Added z-index to ensure it's above other elements */
+    z-index: 20;
+}
+
+@media (min-width: 640px) {
+    .parallax-outer img[src="/sun.svg"] {
+        width: 75%;
+        top: 5%;
+        left: 10%;
+        transform: none;
+    }
 }
 
 .parallax-outer img.second-sun {
-    width: 70%; /* Smaller than the first sun */
-    top: 55%; /* Position in second viewport */
-    left: 10%; /* Center horizontally in second viewport */
-    opacity: 0; /* Start invisible */
+    width: 85%;
+    top: 57%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
     will-change: transform, opacity;
 }
 
+@media (min-width: 640px) {
+    .parallax-outer img.second-sun {
+        width: 70%;
+        top: 55%;
+        left: 10%;
+        transform: none;
+    }
+}
 
 .parallax-outer img[src="/night_cloud_1.svg"] {
-    width: 70%; /* Increased from 50% */
-    top: 56%; /* Same as day cloud 1 */
-    left: 29.4%; /* Same as day cloud 1 */
+    width: 200%;
+    top: 55%;
+    left: 50%;
+    transform: translateX(-50%);
     will-change: transform, opacity;
+}
+
+@media (min-width: 640px) {
+    .parallax-outer img[src="/night_cloud_1.svg"] {
+        width: 70%;
+        top: 56%;
+        left: 29.4%;
+        transform: none;
+    }
 }
 
 .parallax-outer img[src="/night_cloud_2.svg"] {
-    width: 55%; /* Same as day cloud 2 */
-    top: 50%; /* Same as day cloud 2 */
-    left: 25%; /* Same as day cloud 2 */
+    width: 170%;
+    top: 59%;
+    left: 55%;
+    transform: translateX(-50%);
     will-change: transform, opacity;
+}
+
+@media (min-width: 640px) {
+    .parallax-outer img[src="/night_cloud_2.svg"] {
+        width: 55%;
+        top: 50%;
+        left: 25%;
+        transform: none;
+    }
 }
 
 /* Day/Night visibility controlled by GSAP */

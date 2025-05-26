@@ -278,23 +278,25 @@ export default function Hero() {
       <Parallax />
       {/* Hero Section */}
       <div className="h-screen relative">
-        <div className="w-full h-full flex flex-col items-center justify-center pt-32">
+        <div className="w-full h-full flex flex-col items-center justify-center pt-20 sm:pt-32">
           {/* Content */}
-          <div className="relative z-10">
-            <motion.h1
-              className="font-jacquard text-[clamp(3rem,16vw,200px)] leading-none text-white text-center select-none"
-              style={{ letterSpacing: '0.05em', textShadow: '3px 3px 6px rgba(0,0,0,0.6)' }}
-              animate={{ scale: [1, 1.02, 1] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-            >
-              Creative Common
-            </motion.h1>
-            <div className="mt-0 text-3xl md:text-2xl tracking-[0.4em] font-medium text-white text-center">
-              C R E A T I V E &nbsp; C O M M O N
-            </div>
-            <div className="mt-10 text-xl italic text-white/80 text-right w-full max-w-5xl pr-0">
-              <div className="flex justify-end">
-                -where ideas matter as much as execution
+          <div className="relative z-10 px-4 sm:px-0">
+            <div className="backdrop-blur-md bg-white/10 rounded-2xl p-6 sm:backdrop-blur-none sm:bg-transparent sm:p-0">
+              <motion.h1
+                className="font-jacquard text-[clamp(3rem,8vw,200px)] sm:text-[clamp(3rem,16vw,200px)] leading-none text-white text-center select-none"
+                style={{ letterSpacing: '0.05em', textShadow: '3px 3px 6px rgba(0,0,0,0.6)' }}
+                animate={{ scale: [1, 1.02, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+              >
+                Creative Common
+              </motion.h1>
+              <div className="mt-0 text-sm sm:text-2xl md:text-3xl tracking-[0.15em] sm:tracking-[0.4em] font-medium text-white text-center">
+                C R E A T I V E &nbsp; C O M M O N
+              </div>
+              <div className="mt-2 sm:mt-6 text-xs sm:text-lg italic text-white/80 text-right w-full max-w-4xl pr-0 sm:pr-4">
+                <div className="flex justify-end">
+                  -where ideas matter as much as execution
+                </div>
               </div>
             </div>
           </div>
@@ -303,14 +305,14 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="absolute bottom-8 left-0 right-0 flex justify-center items-center"
+            className="absolute bottom-20 sm:bottom-8 left-0 right-0 flex justify-center items-center"
           >
             <div 
               id="scroll-down-button"
               onClick={scrollToForm}
-              className="cursor-pointer backdrop-blur-md bg-white/15 rounded-full px-8 py-3 flex items-center gap--4 border border-white/50 h  over:bg-white/10 transition-all duration-300"
+              className="cursor-pointer backdrop-blur-md bg-white/15 rounded-full px-6 sm:px-8 py-2 sm:py-3 flex items-center gap-4 border border-white/50 hover:bg-white/10 transition-all duration-300"
             >
-              <span className="tracking-[0.3em] font-bold text-lg text-white/90 animate-[bounce_1s_ease-in-out_infinite]">SCROLL DOWN</span>
+              <span className="tracking-[0.3em] font-bold text-base sm:text-lg text-white/90 animate-[bounce_1s_ease-in-out_infinite]">SCROLL DOWN</span>
             </div>
           </motion.div>
         </div>
@@ -320,17 +322,17 @@ export default function Hero() {
       <div className="min-h-screen bg-gradient-to-br from-white via-indigo-50 to-pink-50">
         <div 
           id="form-section"
-          className="w-full min-h-screen flex items-center justify-center px-4 py-10"
+          className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6 py-10"
         >
           <div 
             key={shakeKey}
-            className={`w-full max-w-xl bg-white/95 rounded-2xl p-8 animate-fade-in relative z-10 ${validationError ? 'animate-shake' : ''}`}
+            className={`w-full max-w-xl bg-white/95 rounded-2xl p-4 sm:p-8 animate-fade-in relative z-10 ${validationError ? 'animate-shake' : ''}`}
             style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}
           >
             {!isSubmitted ? (
               <>
-                <div className="mb-8 text-center">
-                  <h2 className="text-3xl font-extrabold mb-2 text-indigo-700">Request a Design</h2>
+                <div className="mb-6 sm:mb-8 text-center">
+                  <h2 className="text-2xl sm:text-3xl font-extrabold mb-2 text-indigo-700">Request a Design</h2>
                   <p className="text-gray-500">Let us know what you need and we'll make it awesome!</p>
                 </div>
 
@@ -393,11 +395,11 @@ export default function Hero() {
                             value={opt}
                             checked={form.help === opt}
                             onChange={e => {
-                               setForm({ ...form, help: opt });
-                               if (validationError && opt) {
-                                 setValidationError(false);
-                                 setWarningMessage('');
-                               }
+                              setForm({ ...form, help: opt });
+                              if (validationError && opt) {
+                                setValidationError(false);
+                                setWarningMessage('');
+                              }
                             }}
                             className="accent-pink-500"
                           />
@@ -412,8 +414,8 @@ export default function Hero() {
                           onChange={e => {
                             setForm({ ...form, helpOther: e.target.value });
                             if (validationError && e.target.value) {
-                               setValidationError(false);
-                               setWarningMessage('');
+                              setValidationError(false);
+                              setWarningMessage('');
                             }
                           }}
                         />
@@ -762,7 +764,7 @@ export default function Hero() {
                 )}
               </>
             ) : (
-              <div className="text-center py-12">
+              <div className="text-center py-8 sm:py-12">
                 {/* Confetti Animation */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
                   {[...Array(20)].map((_, i) => (
@@ -799,13 +801,13 @@ export default function Hero() {
                   transition={{ duration: 0.5 }}
                   className="relative z-10"
                 >
-                  <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
                     >
-                      <span className="text-4xl">🎉</span>
+                      <span className="text-3xl sm:text-4xl">🎉</span>
                     </motion.div>
                   </div>
 
@@ -813,7 +815,7 @@ export default function Hero() {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.3 }}
-                    className="text-3xl font-bold text-gray-900 mb-4"
+                    className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4"
                   >
                     Your creative SOS has been received 🚨✨
                   </motion.h3>
@@ -822,7 +824,7 @@ export default function Hero() {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.4 }}
-                    className="text-gray-600 mb-6 text-lg"
+                    className="text-base sm:text-lg text-gray-600 mb-6"
                   >
                     Our team of slightly sleep-deprived design ninjas 🥷 armed with coffee and Photoshop will now take over.
                   </motion.p>
@@ -831,7 +833,7 @@ export default function Hero() {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.5 }}
-                    className="text-gray-500 mb-8 italic"
+                    className="text-sm sm:text-base text-gray-500 mb-8 italic"
                   >
                     remember we design everything except your excuses for late submission
                   </motion.p>
@@ -842,7 +844,6 @@ export default function Hero() {
                     transition={{ delay: 0.6 }}
                     className="text-indigo-600 font-medium mb-8"
                   >
-                    
                     -CreativeCommon ©
                   </motion.p>
 
@@ -870,7 +871,7 @@ export default function Hero() {
                       });
                       setStep(1);
                     }}
-                    className="px-8 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white font-medium hover:from-indigo-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                    className="px-6 sm:px-8 py-2 sm:py-3 rounded-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white font-medium hover:from-indigo-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                   >
                     Submit Another Request
                   </motion.button>
@@ -878,18 +879,17 @@ export default function Hero() {
               </div>
             )}
             <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-sm text-white/70 mb-0 max-w-2xl mx-auto text-center italic fixed bottom-1 left-0 right-0"
-          >
-            creativecommon ©
-          </motion.p>
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-xs sm:text-sm text-white/70 mb-0 max-w-2xl mx-auto text-center italic fixed bottom-1 left-0 right-0"
+            >
+              creativecommon ©
+            </motion.p>
           </div>
         </div>
       </div>
     </div>
-    
   );
 }

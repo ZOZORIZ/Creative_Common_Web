@@ -16,17 +16,44 @@ export default function Parallax() {
         const parallaxContainer = parallaxRef.current;
         if (!parallaxContainer) return;
 
+        // Check if device is mobile
+        const isMobile = window.innerWidth <= 768;
+        
+        // Fixed scroll values for mobile and desktop
+        const scrollValues = {
+            mobile: {
+                dayLight: 800,
+                firstSun: -30,
+                cloud1: -150,
+                cloud2: 75,
+                secondSun: 30,
+                nightCloud1: { y: 30, x: -75 },
+                nightCloud2: { y: 30, x: 75 }
+            },
+            desktop: {
+                dayLight: 900,
+                firstSun: -50,
+                cloud1: -200,
+                cloud2: 100,
+                secondSun: 50,
+                nightCloud1: { y: 50, x: -100 },
+                nightCloud2: { y: 50, x: 100 }
+            }
+        };
+
+        const values = isMobile ? scrollValues.mobile : scrollValues.desktop;
+
         // Simple parallax for day_light.svg
         const dayLight = dayImagesRef.current[0];
         if (dayLight) {
             gsap.to(dayLight, {
-                y: 900, // Move down
-                x: 0, // Move left
+                y: values.dayLight,
+                x: 0,
                 ease: "power1.out",
                 scrollTrigger: {
                     trigger: document.documentElement,
                     start: "top top",
-                    end: "center center",
+                    end: isMobile ? "+=600" : "center center",
                     scrub: 0.5,
                 }
             });
@@ -36,13 +63,13 @@ export default function Parallax() {
         const firstSun = dayImagesRef.current[3];
         if (firstSun) {
             gsap.to(firstSun, {
-                y: -100,
+                y: values.firstSun,
                 opacity: 0,
                 ease: "power1.out",
                 scrollTrigger: {
                     trigger: document.documentElement,
                     start: "top top",
-                    end: "+=400",
+                    end: isMobile ? "+=300" : "+=400",
                     scrub: 0.5
                 }
             });
@@ -53,24 +80,24 @@ export default function Parallax() {
         const cloud2 = dayImagesRef.current[2];
         if (cloud1) {
             gsap.to(cloud1, {
-                x: -400, // Move left
+                x: values.cloud1,
                 ease: "power1.out",
                 scrollTrigger: {
                     trigger: document.documentElement,
                     start: "top top",
-                    end: "center center",
+                    end: isMobile ? "+=400" : "center center",
                     scrub: 0.5
                 }
             });
         }
         if (cloud2) {
             gsap.to(cloud2, {
-                x: 200, // Move right
+                x: values.cloud2,
                 ease: "power1.out",
                 scrollTrigger: {
                     trigger: document.documentElement,
                     start: "top top",
-                    end: "center center",
+                    end: isMobile ? "+=400" : "center center",
                     scrub: 0.5
                 }
             });
@@ -80,28 +107,27 @@ export default function Parallax() {
         const secondSun = dayImagesRef.current[4];
         if (secondSun) {
             gsap.fromTo(secondSun,
-                { opacity: 0, y: 100 },
+                { opacity: 0, y: values.secondSun },
                 {
                     opacity: 1,
                     y: 0,
                     ease: "power2.in",
                     scrollTrigger: {
                         trigger: "#form-section",
-                        start: "top bottom",
-                        end: "top top",
+                        start: isMobile ? "top bottom" : "top bottom",
+                        end: isMobile ? "top center" : "top top",
                         scrub: 0.5,
                     }
                 }
             );
         }
 
-
         // Night clouds animations
         const nightCloud1 = nightImagesRef.current[1];
         const nightCloud2 = nightImagesRef.current[2];
         if (nightCloud1) {
             gsap.fromTo(nightCloud1,
-                { opacity: 0, y: 100, x: -200 },
+                { opacity: 0, y: values.nightCloud1.y, x: values.nightCloud1.x },
                 {
                     opacity: 1,
                     y: 0,
@@ -109,8 +135,8 @@ export default function Parallax() {
                     ease: "power3.in",
                     scrollTrigger: {
                         trigger: "#form-section",
-                        start: "top bottom",
-                        end: "top top",
+                        start: isMobile ? "top bottom" : "top bottom",
+                        end: isMobile ? "top center" : "top top",
                         scrub: 0.5,
                     }
                 }
@@ -118,7 +144,7 @@ export default function Parallax() {
         }
         if (nightCloud2) {
             gsap.fromTo(nightCloud2,
-                { opacity: 0, y: 100, x: 200 },
+                { opacity: 0, y: values.nightCloud2.y, x: values.nightCloud2.x },
                 {
                     opacity: 1,
                     y: 0,
@@ -126,8 +152,8 @@ export default function Parallax() {
                     ease: "power3.in",
                     scrollTrigger: {
                         trigger: "#form-section",
-                        start: "top bottom",
-                        end: "top top",
+                        start: isMobile ? "top bottom" : "top bottom",
+                        end: isMobile ? "top center" : "top top",
                         scrub: 0.5,
                     }
                 }
@@ -138,13 +164,13 @@ export default function Parallax() {
         dayImagesRef.current.forEach((img, index) => {
             if (!img || index === 0 || index === 1 || index === 2 || index === 3 || index === 4) return;
             gsap.to(img, {
-                y: -100,
+                y: isMobile ? -30 : -100,
                 opacity: 0,
                 ease: "none",
                 scrollTrigger: {
                     trigger: document.documentElement,
                     start: "top top",
-                    end: "center top",
+                    end: isMobile ? "+=300" : "center top",
                     scrub: true
                 }
             });
