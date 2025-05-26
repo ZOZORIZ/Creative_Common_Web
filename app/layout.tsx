@@ -8,7 +8,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Creative Common",
-  description: "Creative Common - Your Creative Partner",
+  description: "Creative Common - where ideas matter just as much as execution",
+  icons: {
+    icon: "/creative_common_logo.png",
+  },
 };
 
 export default function RootLayout({
