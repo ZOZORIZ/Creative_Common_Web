@@ -22,7 +22,7 @@ export default function Parallax() {
         // Fixed scroll values for mobile and desktop
         const scrollValues = {
             mobile: {
-                dayLight: 800,
+                dayLight: 700,
                 firstSun: -30,
                 cloud1: -150,
                 cloud2: 75,
@@ -31,7 +31,7 @@ export default function Parallax() {
                 nightCloud2: { y: 30, x: 75 }
             },
             desktop: {
-                dayLight: 800,
+                dayLight: 900,
                 firstSun: -50,
                 cloud1: -200,
                 cloud2: 100,
