@@ -8,37 +8,42 @@ const projects = [
   {
     id: 1,
     image: '/symphony.JPG',
-    title: 'Project Symphony',
-    description: 'A creative project exploring visual harmony and digital art.',
-    category: 'Digital Art',
+    title: 'Symphony of Secrets',
+    description: 'Also known as Voice of Nakshatra, this poster was a fun yet challenging design experience, pushing creative problem-solving',
+    category: 'Graphic Design',
+    mediaType: 'image'
   },
   {
     id: 2,
     image: '/strings.JPG',
-    title: 'Project Strings',
-    description: 'An intricate design piece focusing on detailed line work and texture.',
-    category: 'Illustration',
+    title: 'Enchanted Strings',
+    description: 'A music-inspired visual that blends intricate line work and textures to capture the soulful essence of string instruments',
+    category: 'Graphic Design',
+    mediaType: 'image'
   },
   {
     id: 3,
     image: '/campus.png',
-    title: 'Campus Life',
-    description: 'Capturing the vibrant energy and diverse scenes of campus life.',
-    category: 'Photography',
+    title: 'Campus Ambassador',
+    description: 'A promotional visual for the Campus Ambassador program, highlighting leadership, student engagement, and the vibrant spirit of college life.',
+    category: 'Graphic Design',
+    mediaType: 'image'
   },
   {
     id: 4,
     image: '/syncstep.png',
-    title: 'Syncstep',
+    title: 'Phantom Moves',
     description: 'A project about rhythm, movement, and synchronized visuals.',
-    category: 'Motion Graphics',
+    category: 'Graphic Design',
+    mediaType: 'image'
   },
   {
     id:5,
     image: '/evan.jpg',
-    title: 'Evan',
-    description: 'A portrait series exploring emotion and expression.',
-    category: 'Photography',
+    title: 'Decemeber Special',
+    description: 'A festive graphic campaign designed for Route 187, Changanassery — capturing the warmth and flavor of the season to promote their December specials.',
+    category: 'Graphic Design',
+    mediaType: 'image'
   },
   {
     id:6,
@@ -46,27 +51,47 @@ const projects = [
     title: 'TEDx Event Poster',
     description: 'Designing promotional material for a local TEDx event.',
     category: 'Graphic Design',
+    mediaType: 'image'
   },
   {
     id:7,
     image: '/nk.png',
-    title: "Nature's Kiss",
-    description: 'Inspired by the beauty and tranquility of nature.',
-    category: 'Digital Painting',
+    title: "Nakshatra 2025",
+    description: 'Masquerade of Elites',
+    category: 'Graphic Design',
+    mediaType: 'image'
   },
   {
     id:8,
     image: '/farewell_story.png',
-    title: 'Farewell Story',
-    description: 'A visual narrative about goodbyes and new beginnings.',
-    category: 'Illustration',
+    title: 'ADIEU 25',
+    description: 'A heartfelt illustration created for the farewell event of the 2025 batch, capturing the nostalgia, joy, and final moments of campus life.',
+    category: 'Graphic Design',
+    mediaType: 'image'
   },
   {
     id:9,
     image: '/abitalib.png',
-    title: 'Abstract Design',
+    title: 'Appreciation Poster',
     description: 'Exploring abstract forms and vibrant color palettes.',
-    category: 'Abstract Art',
+    category: 'Graphic Design',
+    mediaType: 'image'
+  },
+  {
+    id:10,
+    image: '/nakshatra.png',
+    title: 'Nakshatra 2025 Logo',
+    description: 'Designed around the theme Masquerade of Elites, this logo captures the grandeur and intrigue of Nakshatra 2025 with refined symbolism and visual flair',
+    category: 'Logo Design',
+    mediaType: 'image'
+  },
+  {
+    id:11,
+    image: '/nkmotion.gif',
+    title: 'Motion Graphics',
+    description: 'Last of Us Inspired',
+    category: 'Motion Graphics',
+    mediaType: 'image'
   }
 ];
 
@@ -175,7 +200,7 @@ export default function Portfolio() {
                   transition={{ duration: 0.5, type: "spring" }}
                   className={`relative rounded-2xl overflow-hidden shadow-xl cursor-pointer ${
                     isExpanded 
-                      ? 'w-full max-w-3xl' 
+                      ? 'w-full max-w-4xl mx-auto' 
                       : 'w-[calc(50%-0.5rem)] sm:w-40 h-40 sm:h-60'
                   } bg-white`}
                   onClick={() => handleCardClick(project.id)}
@@ -183,15 +208,49 @@ export default function Portfolio() {
                   whileTap={{ scale: isExpanded ? 1 : 0.98 }}
                   ref={el => { cardRefs.current[project.id] = el; }}
                 >
-                  <div className={`relative ${isExpanded ? 'h-64 sm:h-96' : 'h-full w-full'}`}>
-                    <Image 
-                      src={project.image}
-                      alt={`Portfolio Image ${project.id}`}
-                      fill
-                      className={`object-cover ${isExpanded ? 'rounded-t-2xl' : 'rounded-2xl'}`}
-                      priority
-                      sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-                    />
+                  <div className={`relative ${isExpanded ? 'aspect-video' : 'h-full w-full'}`}>
+                    {isExpanded && (
+                      <div className="absolute inset-0 overflow-hidden">
+                        {project.mediaType === 'video' && !project.image.endsWith('.gif') ? (
+                          <video
+                            src={project.image}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="absolute w-[120%] h-[120%] -top-[10%] -left-[10%] object-cover blur-xl opacity-30"
+                          />
+                        ) : (
+                          <Image 
+                            src={project.image}
+                            alt=""
+                            fill
+                            className="object-cover blur-lg opacity-70 scale-110"
+                            priority
+                          />
+                        )}
+                      </div>
+                    )}
+                    {project.mediaType === 'video' && !project.image.endsWith('.gif') ? (
+                      <video
+                        src={project.image}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className={`${isExpanded ? 'object-contain rounded-t-2xl relative z-10' : 'object-cover rounded-2xl'}`}
+                        style={{ width: '100%', height: '100%' }}
+                      />
+                    ) : (
+                      <Image 
+                        src={project.image}
+                        alt={`Portfolio Image ${project.id}`}
+                        fill
+                        className={`${isExpanded ? 'object-contain rounded-t-2xl relative z-10' : 'object-cover rounded-2xl'}`}
+                        priority
+                        sizes={isExpanded ? "(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw" : "(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"}
+                      />
+                    )}
                   </div>
                   <AnimatePresence>
                     {isExpanded && (
