@@ -108,6 +108,14 @@ const projects = [
     description: 'A visually immersive poster designed for the VR-themed event "EndSpace" as part of the Shristi college fest — blending sci-fi aesthetics with digital surrealism to evoke the thrill of virtual exploration.',
     category: 'Graphic Design',
     mediaType: 'image'
+  },
+  {
+    id:14,
+    image: '/rashii.png',
+    title: 'Logo Work For Outside Client',
+    description: 'A dynamic logo crafted for a nature club, symbolizing the elemental forces of earth, fire, and vitality — capturing the spirit of resilience, natural power, and environmental harmony.',
+    category: 'Logo Design',
+    mediaType: 'image'
   }
 
 ];
