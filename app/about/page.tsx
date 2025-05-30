@@ -12,9 +12,9 @@ const tools = [
         alt="Figma Logo" 
         width={56}
         height={56}
-        className="object-contain"
+        className="object-contain w-10 h-10 sm:w-14 sm:h-14"
       />
-      <span className="mt-2 text-center text-indigo-700 font-medium">Figma</span>
+      <span className="mt-2 text-center text-indigo-700 font-medium text-sm sm:text-base">Figma</span>
     </div>
   },
   { 
@@ -25,9 +25,9 @@ const tools = [
         alt="Canva Logo" 
         width={64}
         height={64}
-        className="object-contain"
+        className="object-contain w-10 h-10 sm:w-16 sm:h-16"
       />
-      <span className="mt-2 text-center text-indigo-700 font-medium">Canva</span>
+      <span className="mt-2 text-center text-indigo-700 font-medium text-sm sm:text-base">Canva</span>
     </div>
   },
   { 
@@ -38,9 +38,9 @@ const tools = [
         alt="Photoshop Logo" 
         width={68}
         height={64}
-        className="object-contain"
+        className="object-contain w-11 h-11 sm:w-16 sm:h-16"
       />
-      <span className="mt-2 text-center text-indigo-700 font-medium">Photoshop</span>
+      <span className="mt-1 sm:mt-0.5 text-center text-indigo-700 font-medium h-6 text-sm sm:text-base">Photoshop</span>
     </div>
   },
   { 
@@ -51,9 +51,9 @@ const tools = [
         alt="Premiere Pro Logo" 
         width={48}
         height={48}
-        className="object-contain"
+        className="object-contain w-8 h-10 sm:w-12 sm:h-12"
       />
-      <span className="mt-2 text-center text-indigo-700 font-medium">Premiere Pro</span>
+      <span className="mt-1.5 sm:mt-2.5 text-center text-indigo-700 font-medium text-sm sm:text-base">Premiere Pro</span>
     </div>
   },
   { 
@@ -64,9 +64,9 @@ const tools = [
         alt="After Effects Logo" 
         width={48}
         height={48}
-        className="object-contain"
+        className="object-contain w-8 h-8 sm:w-12 sm:h-12"
       />
-      <span className="mt-2 text-center text-indigo-700 font-medium">After Effects</span>
+      <span className="mt-2.5 text-center text-indigo-700 font-medium text-sm sm:text-base">After Effects</span>
     </div>
   },
   { 
@@ -77,9 +77,9 @@ const tools = [
         alt="3D Software Logo" 
         width={64}
         height={64}
-        className="object-contain"
+        className="object-contain w-10 h-8 sm:w-16 sm:h-16"
       />
-      <span className="mt-2 text-center text-indigo-700 font-medium">3D Software</span>
+      <span className="mt-2 text-center text-indigo-700 font-medium text-sm sm:text-base">3D Software</span>
     </div>
   }
 ];
@@ -154,7 +154,7 @@ export default function About() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6"
+                className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6"
               >
                 {tools.map((tool, index) => (
                   <motion.div
@@ -163,7 +163,7 @@ export default function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-white rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow h-36 sm:h-48 flex items-center justify-center"
+                    className="bg-white rounded-xl p-3 sm:p-7 shadow-lg hover:shadow-xl transition-shadow h-28 sm:h-48 flex items-center justify-center"
                   >
                     {tool.icon}
                   </motion.div>

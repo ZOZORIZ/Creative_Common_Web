@@ -92,7 +92,24 @@ const projects = [
     description: 'Last of Us Inspired',
     category: 'Motion Graphics',
     mediaType: 'image'
+  },
+  {
+    id:12,
+    image: '/x.gif',
+    title: 'Tedx@Saintgits Motion Graphics',
+    description: 'LED wall visual created for TEDx Saintgits 2025',
+    category: 'Motion Graphics',
+    mediaType: 'image'
+  },
+  {
+    id:13,
+    image: '/deadspace.jpeg',
+    title: 'DeadSpace-Poster for Shristi',
+    description: 'A visually immersive poster designed for the VR-themed event "EndSpace" as part of the Shristi college fest — blending sci-fi aesthetics with digital surrealism to evoke the thrill of virtual exploration.',
+    category: 'Graphic Design',
+    mediaType: 'image'
   }
+
 ];
 
 export default function Portfolio() {

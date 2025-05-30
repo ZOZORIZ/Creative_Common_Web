@@ -283,19 +283,19 @@ export default function Hero() {
           <div className="relative z-10 px-4 sm:px-0">
             <div className="backdrop-blur-md bg-white/10 rounded-2xl p-6 sm:backdrop-blur-none sm:bg-transparent sm:p-0">
               <motion.h1
-                className="font-jacquard text-[clamp(3rem,8vw,200px)] sm:text-[clamp(3rem,16vw,200px)] leading-none text-white text-center select-none"
-                style={{ letterSpacing: '0.05em', textShadow: '3px 3px 6px rgba(0,0,0,0.6)' }}
+                className="font-jacquard text-[clamp(4rem,8vw,200px)] sm:text-[clamp(3rem,16vw,200px)] leading-none text-white text-center select-none"
+                style={{ lineHeight: '0.8em', letterSpacing: '0.09em', textShadow: '3px 3px 6px rgba(0,0,0,0.6)' }}
                 animate={{ scale: [1, 1.02, 1] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
               >
                 Creative Common
               </motion.h1>
-              <div className="mt-0 text-sm sm:text-2xl md:text-3xl tracking-[0.15em] sm:tracking-[0.4em] font-medium text-white text-center">
+              <div className="mt-2 sm:mt-0 text-sm sm:text-2xl md:text-3xl tracking-[0.15em] sm:tracking-[0.3em] font-medium text-white text-center">
                 C R E A T I V E &nbsp; C O M M O N
               </div>
-              <div className="mt-2 sm:mt-6 text-xs sm:text-lg italic text-white/80 text-right w-full max-w-4xl pr-0 sm:pr-4">
-                <div className="flex justify-end">
-                  -where ideas matter as much as execution
+              <div className="mt-2 sm:mt-6 text-xs sm:text-lg italic text-white/80 text-center w-full max-w-4xl mx-auto">
+                <div className="flex justify-center">
+                    -where ideas matter as much as execution
                 </div>
               </div>
             </div>
