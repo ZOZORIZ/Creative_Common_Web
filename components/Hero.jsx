@@ -104,15 +104,48 @@ export default function Hero() {
     setError('');
 
     try {
+      // Format timestamp to be more readable
+      const formattedTimestamp = new Date().toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      });
+
+      // Create FormData and append all fields
       const formData = new FormData();
+      formData.append('timestamp', formattedTimestamp);
       formData.append('name', form.name || '');
       formData.append('email', form.email || '');
       formData.append('phone', form.whatsapp || '');
       formData.append('eventType', form.help === 'Other (specify)' ? form.helpOther || '' : form.help || '');
-      formData.append('eventDate', form.date ? form.date.toISOString() : '');
-      formData.append('budget', form.club || '');
-      formData.append('message', `Event: ${form.event || ''}\nAbout: ${form.about || ''}\nAesthetic: ${form.aesthetic === 'Other (describe)' ? form.aestheticOther || '' : form.aesthetic || ''}\nNotes: ${form.notes || ''}`);
+      formData.append('eventDate', form.date ? form.date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      }) : '');
+      formData.append('department', form.club || '');
+      formData.append('event', form.event || '');
+      formData.append('about', form.about || '');
+      formData.append('aesthetic', form.aesthetic === 'Other (describe)' ? form.aestheticOther || '' : form.aesthetic || '');
+      formData.append('notes', form.notes || '');
+      
+      // Create combined message
+      const message = [
+        `Event: ${form.event || ''}`,
+        `About: ${form.about || ''}`,
+        `Aesthetic: ${form.aesthetic === 'Other (describe)' ? form.aestheticOther || '' : form.aesthetic || ''}`,
+        `Notes: ${form.notes || ''}`
+      ].filter(line => line.split(': ')[1]).join('\n');
+      
+      formData.append('message', message);
+      formData.append('fileLink1', form.references ? 'Yes' : 'No');
+      formData.append('fileLink2', form.logo ? 'Yes' : 'No');
 
+      // Append files if they exist
       if (form.references) {
         formData.append('references', form.references, form.references.name);
       }
@@ -120,19 +153,50 @@ export default function Hero() {
         formData.append('logo', form.logo, form.logo.name);
       }
 
-      const response = await fetch('/api/upload-and-submit', {
+      // First send to the main API
+      const apiResponse = await fetch('/api/upload-and-submit', {
         method: 'POST',
-        body: formData,
+        body: formData
       });
 
-      const data = await response.json();
+      const apiData = await apiResponse.json();
 
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to submit form');
-      }
+      if (!apiResponse.ok || !apiData.success) {
+        // If main API fails, try n8n as backup
+        try {
+          const n8nResponse = await fetch('http://localhost:5678/webhook/file-upload', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              timestamp: formattedTimestamp,
+              name: form.name || '',
+              email: form.email || '',
+              phone: form.whatsapp || '',
+              eventType: form.help === 'Other (specify)' ? form.helpOther || '' : form.help || '',
+              eventDate: form.date ? form.date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+              }) : '',
+              department: form.club || '',
+              event: form.event || '',
+              about: form.about || '',
+              aesthetic: form.aesthetic === 'Other (describe)' ? form.aestheticOther || '' : form.aesthetic || '',
+              notes: form.notes || '',
+              message: message,
+              fileLink1: apiData.fileLinks?.references || '',
+              fileLink2: apiData.fileLinks?.logo || ''
+            })
+          });
 
-      if (!data.success) {
-        throw new Error(data.error || 'Form submission failed');
+          if (!n8nResponse.ok) {
+            throw new Error('Both main API and n8n backup failed');
+          }
+        } catch (n8nError) {
+          throw new Error('Both main API and n8n backup failed');
+        }
       }
 
       setIsSubmitted(true);

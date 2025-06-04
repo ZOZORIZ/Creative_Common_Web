@@ -34,7 +34,7 @@ export async function POST(request: Request) {
     const phone = formData.get('phone') as string;
     const eventType = formData.get('eventType') as string;
     const eventDate = formData.get('eventDate') as string;
-    const budget = formData.get('budget') as string;
+    const department = formData.get('department') as string;
     const message = formData.get('message') as string;
 
     // Handle file uploads
@@ -100,7 +100,7 @@ export async function POST(request: Request) {
           phone,
           eventType,
           eventDate,
-          budget,
+          department,
           message,
           referencesLink,
           logoLink
